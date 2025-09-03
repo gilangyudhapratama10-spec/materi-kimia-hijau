@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembelajaran Interaktif Kimia Hijau</title>
+    <style>
+        /* CSS akan diletakkan di sini */
+        :root {
+            --primary: #2e7d32;
+            --secondary: #8bc34a;
+            --accent: #ffc107;
+            --light: #f1f8e9;
+            --dark: #1b5e20;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: var(--secondary);
+            padding: 0.5rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav button {
+            background-color: var(--light);
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        nav button:hover {
+            background-color: var(--accent);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .content-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .quiz-container {
+            background-color: var(--light);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        
+        .interactive-element {
+            background-color: #e8f5e9;
+            padding: 1rem;
+            border-left: 4px solid var(--primary);
+            margin: 1rem 0;
+            cursor: pointer;
+        }
+        
+        .interactive-element:hover {
+            background-color: #c8e6c9;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            
+            nav button {
+                width: 100%;
+                margin: 0.2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kimia Hijau dan Pembangunan Berkelanjutan</h1>
+        <p>Media Pembelajaran Interaktif untuk Memahami Prinsip-Prinsip Kimia Ramah Lingkungan</p>
+    </header>
+    
+    <nav>
+        <button onclick="showSection('pengertian')">Pengertian</button>
+        <button onclick="showSection('prinsip')">12 Prinsip</button>
+        <button onclick="showSection('sdgs')">Kaitan dengan SDGs</button>
+        <button onclick="showSection('contoh')">Contoh Proses Kimia</button>
+        <button onclick="showSection('penerapan')">Penerapan</button>
+        <button onclick="showSection('kuis')">Kuis Interaktif</button>
+    </nav>
+    
+    <div class="container">
+        <!-- Section: Pengertian -->
+        <section id="pengertian" class="content-section">
+            <h2>Pengertian Kimia Hijau</h2>
+            <p>Kimia hijau atau green chemistry adalah teknik atau metode kimia baru yang bertujuan mengurangi penggunaan bahan kimia berbahaya dalam industri tetapi tetap mempertahankan produksi barang secara efisien dan efektif.</p>
+            
+            <div class="interactive-element" onclick="toggleInfo('sejarah')">
+                <h3>Sejarah Kimia Hijau ↗</h3>
+                <div id="sejarah" class="hidden">
+                    <p>Konsep kimia hijau pertama kali diperkenalkan di Amerika Serikat dengan diterbitkannya <em>Pollution Prevention Act</em> atau Undang-Undang Pencegahan Polusi pada tahun 1990. Perundang-undangan ini menginisiasi upaya pencegahan masalah pencemaran lingkungan akibat senyawa dan bahan kimia berbahaya melalui proses yang lebih baik.</p>
+                    <p>Pada tahun 1998, Paul Anastas dan John C. Warner merumuskan 12 prinsip kimia hijau yang menjadi landasan perkembangan bidang ini.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section: 12 Prinsip -->
+        <section id="prinsip" class="content-section hidden">
+            <h2>12 Prinsip Kimia Hijau</h2>
+            <ol>
+                <li><strong>Pencegahan limbah</strong> - Mencegah terciptanya bahan buangan beracun lebih baik daripada menangani atau membersihkan bahan buangan tersebut.</li>
+                <li><strong>Ekonomi atom</strong> - Metode sintesis didesain untuk memaksimalkan incorporasi semua material yang digunakan dalam proses ke dalam produk akhir.</li>
+                <li><strong>Sintesis kimia yang kurang berbahaya</strong> - Sintesis bahan kimia yang tidak atau kurang berbahaya bagi kesehatan manusia dan lingkungan.</li>
+                <li><strong>Perancangan bahan kimia yang lebih aman</strong> - Bahan kimia didesain untuk mempertahankan efisiensi fungsi sambil mengurangi toksisitas.</li>
+                <li><strong>Pelarut dan bahan pendukung yang lebih aman</strong> - Menggunakan pelarut dan bahan-bahan pendukung yang lebih aman dan tidak berbahaya.</li>
+                <li><strong>Efisiensi energi</strong> - Energi requirements dari proses kimia harus diakui untuk dampak lingkungan dan ekonominya, dan harus diminimalkan.</li>
+                <li><strong>Penggunaan bahan baku terbarukan</strong> - Bahan baku seharusnya dapat diperbarui daripada habis, kapanpun secara teknis dan ekonomis layak.</li>
+                <li><strong>Mengurangi turunan</strong> - Turunan yang tidak perlu (blocking group, protection/deprotection, modifikasi sementara fisik/kimia) harus diminimalkan atau dihindari.</li>
+                <li><strong>Katalisis</strong> - Reagen katalitis (selektif sebisa mungkin) lebih unggul daripada reagen stoikiometrik.</li>
+                <li><strong>Perancangan untuk degradasi</strong> - Produk kimia didesain sehingga pada akhir fungsinya mereka terurai menjadi produk degradasi yang tidak berbahaya.</li>
+                <li><strong>Analisis real-time untuk pencegahan polusi</strong> - Metodologi analitis perlu dikembangkan lebih lanjut untuk memungkinkan pemantauan dan kontrol real-time sebelum terbentuknya zat berbahaya.</li>
+                <li><strong>Kimia yang secara inheren lebih aman untuk pencegahan kecelakaan</strong> - Zat dan bentuk zat yang digunakan dalam proses kimia harus dipilih untuk meminimalkan potensi kecelakaan kimia.</li>
+            </ol>
+        </section>
+        
+        <!-- Section: Kaitan dengan SDGs -->
+        <section id="sdgs" class="content-section hidden">
+            <h2>Kaitan Kimia Hijau dengan Tujuan Pembangunan Berkelanjutan (SDGs)</h2>
+            <p>Pada 2015, Perserikatan Bangsa-Bangsa mengeluarkan 17 tujuan pembangunan berkelanjutan (Sustainable Development Goals/SDGs). Kimia hijau memainkan peran penting dalam mencapai beberapa tujuan tersebut:</p>
+            
+            <div class="interactive-element" onclick="toggleInfo('sdg2')">
+                <h3>SDG 2: Zero Hunger (Tanpa Kelaparan) ↗</h3>
+                <div id="sdg2" class="hidden">
+                    <p>Kimia hijau membantu meningkatkan tanaman dan sistem pertanian, meningkatkan produksi pangan dan distribusi, memperpanjang umur penyimpanan makanan melalui kemajuan dalam pengemasan, serta menjaga kualitas dan keamanannya.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element" onclick="toggleInfo('sdg3')">
+                <h3>SDG 3: Good Health & Well-Being (Kehidupan Sehat dan Sejahtera) ↗</h3>
+                <div id="sdg3" class="hidden">
+                    <p>Kimia hijau berperan dalam mengembangkan bahan kimia yang lebih aman untuk kesehatan manusia dan lingkungan, mengurangi paparan terhadap zat berbahaya.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element" onclick="toggleInfo('sdg6')">
+                <h3>SDG 6: Clean Water & Sanitation (Air Bersih dan Sanitasi) ↗</h3>
+                <div id="sdg6" class="hidden">
+                    <p>Kimia hijau membantu masyarakat mendapatkan air bersih dan sanitasi melalui metode baru seperti pemurnian air dan proses desalinasi berbiaya rendah. Juga berperan mencari metode pemisahan baru yang berenergi rendah dan berefisiensi tinggi untuk menghilangkan logam dan mikropolutan.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element" onclick="toggleInfo('sdg7')">
+                <h3>SDG 7: Affordable & Clean Energy (Energi Bersih dan Terjangkau) ↗</h3>
+                <div id="sdg7" class="hidden">
+                    <p>Kimia hijau berperan mengembangkan bahan baru energi terbarukan. Tujuannya adalah agar pengolahan bahan kimia dalam industri bisa lebih hemat energi melalui teknologi bahan baru yang ramah lingkungan.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element" onclick="toggleInfo('sdg9')">
+                <h3>SDG 9: Industry, Innovation & Infrastructure (Industri, Inovasi dan Infrastruktur) ↗</h3>
+                <div id="sdg9" class="hidden">
+                    <p>Kimia hijau mendorong penelitian dan inovasi untuk mengembangkan infrastruktur fasilitas produksi yang lebih berkelanjutan, merancang bahan secara inovatif dan canggih, serta mendorong penelitian kimia yang meningkatkan inovasi untuk komersial.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element" onclick="toggleInfo('sdg12')">
+                <h3>SDG 12: Responsible Consumption & Production (Konsumsi dan Produksi yang Bertanggung Jawab) ↗</h3>
+                <div id="sdg12" class="hidden">
+                    <p>Kimia hijau berperan meningkatkan kualitas dan efisiensi proses produksi di berbagai industri, mulai dari tahap pengambilan makanan, pencegahan kehilangan dan pemborosan makanan, hingga inovasi sistem pengolahan limbah.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element" onclick="toggleInfo('sdg13')">
+                <h3>SDG 13: Climate Action (Penanganan Perubahan Iklim) ↗</h3>
+                <div id="sdg13" class="hidden">
+                    <p>Kimia hijau berperan melakukan penelitian mitigasi dan adaptasi terhadap perubahan iklim. Dengan penelitian kimia hijau, ada peluang peningkatan kualitas sistem pengobatan terhadap penyakit serta produksi benih dan pupuk yang lebih baik di sektor produksi pangan.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section: Contoh Proses Kimia -->
+        <section id="contoh" class="content-section hidden">
+            <h2>Contoh Proses Kimia dalam Kehidupan Sehari-hari</h2>
+            
+            <div class="interactive-element" onclick="toggleInfo('fotosintesis')">
+                <h3>Fotosintesis ↗</h3>
+                <div id="fotosintesis" class="hidden">
+                    <p><strong>Persamaan reaksi kimia:</strong> \( 6CO_2(g) + 6H_2O(l) \rightarrow C_6H_{12}O_6(s) + 6O_2(g) \)</p>
+                    <p><strong>Penjelasan:</strong> Fotosintesis mengurangi gas CO₂ (gas rumah kaca yang menyebabkan peningkatan suhu bumi) dan membantu mengurangi pemanasan global. Produk dari reaksi fotosintesis adalah gula glukosa (C₆H₁₂O₆) sebagai sumber energi bagi tanaman dan gas oksigen (O₂) yang bermanfaat untuk kehidupan manusia dan hewan.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element" onclick="toggleInfo('pembakaran-tidak-sempurna')">
+                <h3>Pembakaran Tidak Sempurna ↗</h3>
+                <div id="pembakaran-tidak-sempurna" class="hidden">
+                    <p><strong>Persamaan reaksi kimia:</strong> \( C_xH_y(g) + \left(\frac{x}{2} + \frac{y}{4}\right)O_2(g) \rightarrow xCO(g) + \frac{y}{2}H_2O(l) \)</p>
+                    <p><strong>Penjelasan:</strong> Proses pembakaran sampah di ruang terbuka dengan jumlah udara terbatas menghasilkan gas karbon monoksida (CO) yang beracun dan padatan arang karbon (C) yang mencemari udara sekitar.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element" onclick="toggleInfo('soda-kue')">
+                <h3>Penggunaan Soda Kue dalam Pembuatan Roti ↗</h3>
+                <div id="soda-kue" class="hidden">
+                    <p><strong>Reaksi:</strong> \( 2NaHCO_3(s) \rightarrow Na_2CO_3(s) + CO_2(g) + H_2O(g) \)</p>
+                    <p><strong>Penjelasan:</strong> Soda kue (NaHCO₃) akan menghasilkan gas CO₂ jika dipanaskan. Gas ini memberi tekanan pada dinding adonan roti sehingga membentuk rongga-rongga. Keadaan ini membuat roti mengembang dan menjadi lebih empuk.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element" onclick="toggleInfo('hujan-asam')">
+                <h3>Hujan Asam ↗</h3>
+                <div id="hujan-asam" class="hidden">
+                    <p><strong>Reaksi pembentukan:</strong></p>
+                    <p>\( 2SO_2(g) + O_2(g) \rightarrow 2SO_3(g) \)</p>
+                    <p>\( SO_3(g) + H_2O(l) \rightarrow H_2SO_4(aq) \)</p>
+                    <p><strong>Penjelasan:</strong> Pembakaran bahan bakar fosil yang mengandung sulfur menghasilkan sulfur dioksida (SO₂) yang kemudian teroksidasi menjadi SO₃ dan bereaksi dengan air membentuk asam sulfat (H₂SO₄) yang menjadi komponen hujan asam.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element" onclick="toggleInfo('korosi')">
+                <h3>Korosi atau Perkaratan ↗</h3>
+                <div id="korosi" class="hidden">
+                    <p><strong>Persamaan reaksi:</strong> \( 4Fe(s) + 3O_2(g) + 2H_2O(l) \rightarrow 2Fe_2O_3 \cdot H_2O(s) \)</p>
+                    <p><strong>Penjelasan:</strong> Besi bereaksi dengan oksigen dan air membentuk karat (hidrat oksida besi). Proses ini dipercepat oleh adanya elektrolit seperti garam atau oleh kondisi asam.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section: Penerapan -->
+        <section id="penerapan" class="content-section hidden">
+            <h2>Penerapan Prinsip Kimia Hijau dalam Kehidupan Sehari-hari</h2>
+            
+            <div class="interactive-element" onclick="toggleInfo('penggantian-cfc')">
+                <h3>Penggantian Klorofluorokarbon (CFC) ↗</h3>
+                <div id="penggantian-cfc" class="hidden">
+                    <p>Mengganti CFC dengan hidroklorofluorokarbon (HCFC) dan hydrofluorocarbon (HFC) yang lebih aman untuk mencegah risiko penipisan lapisan ozon.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element" onclick="toggleInfo('pengurangan-bahan-bakar-fosil')">
+                <h3>Pengurangan Penggunaan Bahan Bakar Fosil ↗</h3>
+                <div id="pengurangan-bahan-bakar-fosil" class="hidden">
+                    <p>Mengurangi ketergantungan pada bahan bakar fosil dengan mengembangkan sumber energi terbarukan seperti tenaga surya, angin, dan biomassa.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element" onclick="toggleInfo('pestisida-ramah-lingkungan')">
+                <h3>Pengembangan Pestisida yang Lebih Ramah Lingkungan ↗</h3>
+                <div id="pestisida-ramah-lingkungan" class="hidden">
+                    <p>Mengembangkan pestisida yang lebih selektif, mudah terurai, dan tidak berdampak negatif pada lingkungan dan kesehatan manusia.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element" onclick="toggleInfo('daur-ulang')">
+                <h3>Daur Ulang Limbah ↗</h3>
+                <div id="daur-ulang" class="hidden">
+                    <p>Mengolah limbah organik menjadi pupuk organik atau biogas, dan mengolah limbah plastik menjadi biofuel atau bahan konstruksi.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element" onclick="toggleInfo('detergen-ramah-lingkungan')">
+                <h3>Penggunaan Detergen Ramah Lingkungan ↗</h3>
+                <div id="detergen-ramah-lingkungan" class="hidden">
+                    <p>Memilih detergen yang dapat terurai secara alami (biodegradable), mengandung sedikit busa, dan menggunakan air bekas cucian untuk menyiram tanaman.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section: Kuis Interaktif -->
+        <section id="kuis" class="content-section hidden">
+            <h2>Kuis Interaktif Kimia Hijau</h2>
+            
+            <div class="quiz-container">
+                <h3>Soal 1: Peningkatan Emisi Gas Rumah Kaca</h3>
+                <p>Emisi gas rumah kaca di Indonesia berasal dari berbagai sumber. Tindakan apa yang sesuai dengan prinsip kimia hijau untuk mengurangi emisi dari sumber-sumber berikut?</p>
+                
+                <div class="interactive-element" onclick="toggleInfo('solusi-kebakaran-gambut')">
+                    <h4>Kebakaran Gambut ↗</h4>
+                    <div id="solusi-kebakaran-gambut" class="hidden">
+                        <p><strong>Solusi:</strong> Membangun sekat kanal dan perbaikan tata kelola air gambut untuk mempertahankan air tetap tertahan di gambut sehingga lahan tetap basah dan tidak mudah terbakar.</p>
+                    </div>
+                </div>
+                
+                <div class="interactive-element" onclick="toggleInfo('solusi-penggunaan-hutan')">
+                    <h4>Penggunaan Hutan dan Lahan Lain ↗</h4>
+                    <div id="solusi-penggunaan-hutan" class="hidden">
+                        <p><strong>Solusi:</strong> Menghindari metode pembakaran untuk keperluan replanting (peremajaan lahan).</p>
+                    </div>
+                </div>
+                
+                <div class="interactive-element" onclick="toggleInfo('solusi-pertanian')">
+                    <h4>Pertanian ↗</h4>
+                    <div id="solusi-pertanian" class="hidden">
+                        <p><strong>Solusi:</strong> Menggunakan pupuk organik ramah lingkungan.</p>
+                    </div>
+                </div>
+                
+                <div class="interactive-element" onclick="toggleInfo('solusi-limbah')">
+                    <h4>Limbah ↗</h4>
+                    <div id="solusi-limbah" class="hidden">
+                        <p><strong>Solusi:</strong> Mengolah limbah organik menjadi pupuk organik, biogas, dan mengolah limbah plastik menjadi biofuel dan bahan beton atau pengeras jalan.</p>
+                    </div>
+                </div>
+                
+                <div class="interactive-element" onclick="toggleInfo('solusi-industri')">
+                    <h4>Industri ↗</h4>
+                    <div id="solusi-industri" class="hidden">
+                        <p><strong>Solusi:</strong> Menggunakan syngas (gasifikasi batubara) sehingga mengurangi emisi gas rumah kaca.</p>
+                    </div>
+                </div>
+                
+                <div class="interactive-element" onclick="toggleInfo('solusi-energi')">
+                    <h4>Energi ↗</h4>
+                    <div id="solusi-energi" class="hidden">
+                        <p><strong>Solusi:</strong> Menggunakan sumber energi alternatif non fosil.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quiz-container">
+                <h3>Soal 2: Pernyataan Benar atau Salah</h3>
+                <p>Nyatakan Benar atau Salah pernyataan-pernyataan berikut:</p>
+                
+                <div class="interactive-element" onclick="toggleInfo('pernyataan-a')">
+                    <h4>a) Tidak semua reaksi kimia menghasilkan zat-zat yang berbahaya. ↗</h4>
+                    <div id="pernyataan-a" class="hidden">
+                        <p><strong>Jawaban: Benar</strong></p>
+                        <p><strong>Alasan:</strong> Contohnya adalah penggunaan soda kue dalam proses memanggang adonan roti. Gas karbondioksida yang dihasilkan akan membuat roti menjadi empuk dan enak disantap. Reaksi kimia dalam pembuatan roti merupakan hal yang positif.</p>
+                    </div>
+                </div>
+                
+                <div class="interactive-element" onclick="toggleInfo('pernyataan-b')">
+                    <h4>b) Pembakaran sampah di udara terbuka adalah contoh penerapan prinsip kimia hijau. ↗</h4>
+                    <div id="pernyataan-b" class="hidden">
+                        <p><strong>Jawaban: Salah</strong></p>
+                        <p><strong>Alasan:</strong> Pembakaran sampah di udara terbuka seringkali merupakan pembakaran tidak sempurna yang menghasilkan gas karbon monoksida (CO) yang beracun dan partikel karbon yang mencemari udara. Hal ini bertentangan dengan prinsip pencegahan polusi dalam kimia hijau.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quiz-container">
+                <h3>Soal 3: Konservasi Laut dan Prinsip Kimia Hijau</h3>
+                <p>Berdasarkan infografis tentang konservasi laut:</p>
+                
+                <div class="interactive-element" onclick="toggleInfo('laut-asam')">
+                    <h4>a) Mengapa laut menjadi asam dan bagaimana hal ini mengancam ekosistem laut? ↗</h4>
+                    <div id="laut-asam" class="hidden">
+                        <p><strong>Jawaban:</strong> Laut menjadi asam karena meningkatnya konsentrasi karbon dioksida (CO₂) di atmosfer yang diserap oleh laut. Penyerapan CO₂ oleh air laut membentuk asam karbonat yang menurunkan pH laut. Hal ini mengancam ekosistem laut karena banyak organisme laut seperti karang dan kerang yang kesulitan membentuk cangkang kalsium karbonat dalam air yang lebih asam.</p>
+                    </div>
+                </div>
+                
+                <div class="interactive-element" onclick="toggleInfo('ancaman-laut')">
+                    <h4>b) Ancaman apa saja yang tidak sesuai dengan prinsip kimia hijau terhadap ekosistem laut? ↗</h4>
+                    <div id="ancaman-laut" class="hidden">
+                        <p><strong>Jawaban:</strong></p>
+                        <ul>
+                            <li>Pencemaran laut oleh hujan asam atau tumpahan BBM dari area pengeboran lepas pantai</li>
+                            <li>Limbah plastik yang masuk ke laut mengancam keragaman hayati laut</li>
+                            <li>Aktivitas manusia di lautan yang melanggar hukum seperti eksploitasi ikan dengan bahan kimia</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="interactive-element" onclick="toggleInfo('dampak-ekonomi')">
+                    <h4>c) Jelaskan dampak terhadap perekonomian, kelestarian lingkungan dan sosial! ↗</h4>
+                    <div id="dampak-ekonomi" class="hidden">
+                        <p><strong>Jawaban:</strong></p>
+                        <ul>
+                            <li><strong>Ekonomi:</strong> Menurunnya pendapatan nelayan sehingga mempengaruhi berkurangnya pendapatan nasional bruto dari sektor kelautan.</li>
+                            <li><strong>Lingkungan:</strong> Kerusakan ekosistem laut dan ancaman kepunahan keragaman hayati laut.</li>
+                            <li><strong>Sosial:</strong> Merusak citra laut Indonesia sebagai bagian dari promosi pariwisata laut yang akan menurunkan angka kunjungan wisatawan.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Media Pembelajaran Interaktif Kimia Hijau © 2023</p>
+        <p>Berdasarkan materi dari: pdf-kimia-hijau_compress.pdf dan pdf-materi-kimia-kelas-10-kimia-hijau_compress.pdf</p>
+    </footer>
+
+    <script>
+        // JavaScript untuk interaktivitas
+        function showSection(sectionId) {
+            // Sembunyikan semua section
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Tampilkan section yang dipilih
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+        
+        function toggleInfo(elementId) {
+            const element = document.getElementById(elementId);
+            element.classList.toggle('hidden');
+        }
+        
+        // Tampilkan section pengertian secara default
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('pengertian');
+            
+            // Render MathJax jika diperlukan
+            if (typeof MathJax !== 'undefined') {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            }
+        });
+    </script>
+    
+    <!-- Load MathJax untuk rendering persamaan kimia -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+</body>
+</html>
